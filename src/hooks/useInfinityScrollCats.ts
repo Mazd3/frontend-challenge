@@ -28,14 +28,13 @@ export function useInfinityScroll(first: number = 30, limit: number = 15) {
   }
 
   function handleEnd() {
+    if (loading) return;
     if (
-      window.innerHeight + document.documentElement.scrollTop !==
-        document.documentElement.offsetHeight ||
-      loading
+      window.innerHeight + document.documentElement.scrollTop >=
+      document.documentElement.offsetHeight - 200
     ) {
-      return;
+      fetchData(limit);
     }
-    fetchData(limit);
   }
 
   useEffect(() => {
