@@ -13,11 +13,11 @@ export function Home() {
   return (
     <Layout>
       <CatContainer>
-        {cats.map((cat) => (
+        {cats.map((cat, index) => (
           <CatCard
             setFavorites={() => setFavorites(cat.id, cat.url)}
             favorite={Boolean(favorites.find((fav) => fav.id === cat.id))}
-            key={cat.id}
+            key={index}
             src={cat.url}
           />
         ))}

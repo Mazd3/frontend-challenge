@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Cat } from "../types/Cat";
 
-export function useInfinityScroll(first: number = 30, limit: number = 15) {
+export function useInfinityScroll(first: number = 40, limit: number = 20) {
   const [cats, setCats] = useState<Cat[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
@@ -43,6 +43,9 @@ export function useInfinityScroll(first: number = 30, limit: number = 15) {
   }, []);
 
   useEffect(() => {
+    if (window.innerHeight > document.documentElement.offsetHeight) {
+      handleEnd();
+    }
     window.addEventListener("scroll", handleEnd);
     return () => window.removeEventListener("scroll", handleEnd);
   }, [loading]);
