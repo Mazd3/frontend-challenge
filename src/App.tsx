@@ -1,20 +1,23 @@
 import { Home } from "./pages/Home";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  redirect,
+} from "react-router-dom";
 import { Favorites } from "./pages/Favorites";
-import { PageNonFound } from "./pages/PageNotFound";
 
 const router = createBrowserRouter([
   {
     path: "/frontend-challenge",
+    loader: () => redirect("/frontend-challenge/home"),
+  },
+  {
+    path: "/frontend-challenge/home",
     element: <Home />,
   },
   {
     path: "/frontend-challenge/favorites",
     element: <Favorites />,
-  },
-  {
-    path: "*",
-    element: <PageNonFound />,
   },
 ]);
 
