@@ -1,8 +1,7 @@
 import { CatContainer } from "../components/CatContainer";
-import { CatCard } from "../components/Cat";
+import { CatCard } from "../components/CatCard";
 import { Layout } from "../components/Layout";
 import { useFavorites } from "../hooks/useFavoritesCats";
-import { Link } from "react-router-dom";
 import { NoCats } from "../components/NoCats";
 
 export function Favorites() {

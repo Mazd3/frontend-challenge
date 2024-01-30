@@ -1,17 +1,17 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { Cat } from "../types/Cat";
 
 export function useFavorites() {
-  const [favorites, changeFavorites] = React.useState<Cat[] | []>([]);
+  const [favorites, changeFavorites] = useState<Cat[] | []>([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const favoritesString = localStorage.getItem("favorites");
     if (!favoritesString) return;
     const favoritesArr: Cat[] = JSON.parse(favoritesString);
     changeFavorites(favoritesArr);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 

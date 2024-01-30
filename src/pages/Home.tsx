@@ -1,8 +1,10 @@
 import { CatContainer } from "../components/CatContainer";
-import { CatCard, CatCardLoader, CatLoadingMessage } from "../components/Cat";
+import { CatCard } from "../components/CatCard";
 import { Layout } from "../components/Layout";
 import { useInfinityScroll } from "../hooks/useInfinityScrollCats";
 import { useFavorites } from "../hooks/useFavoritesCats";
+import { CatSkeleton } from "../components/CatSkeleton";
+import { CatLoadingMessage } from "../components/CatLoadingMessage";
 
 export function Home() {
   const { cats, loading } = useInfinityScroll();
@@ -22,7 +24,7 @@ export function Home() {
         {loading &&
           Array(10)
             .fill(0)
-            .map((_, index) => <CatCardLoader key={index} />)}
+            .map((_, index) => <CatSkeleton key={index} />)}
       </CatContainer>
       {loading && <CatLoadingMessage />}
     </Layout>

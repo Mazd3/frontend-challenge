@@ -1,4 +1,4 @@
-import styles from "./Cat.module.css";
+import styles from "./CatCard.module.css";
 
 interface CatCardProps {
   src: string;
@@ -20,12 +20,4 @@ export function CatCard({ src, favorite, setFavorites }: CatCardProps) {
       </div>
     </div>
   );
-}
-
-export function CatCardLoader() {
-  return <div className={styles.loader} />;
-}
-
-export function CatLoadingMessage() {
-  return <p className={styles.message}>... загружаем котиков ...</p>;
 }
