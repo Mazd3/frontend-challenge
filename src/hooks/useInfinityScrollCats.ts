@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Cat } from "../types/Cat";
 
-export function useInfinityScroll(first: number = 40, limit: number = 20) {
+export function useInfinityScroll(limit: number = 20) {
   const [cats, setCats] = useState<Cat[]>([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(0);
 
-  async function fetchData(limit: number) {
+  async function fetchData() {
     setLoading(true);
     try {
       const res = await fetch(
@@ -33,13 +33,12 @@ export function useInfinityScroll(first: number = 40, limit: number = 20) {
       window.innerHeight + document.documentElement.scrollTop >=
       document.documentElement.offsetHeight - 200
     ) {
-      fetchData(limit);
+      fetchData();
     }
   }
 
   useEffect(() => {
-    fetchData(first);
-    setPage(page + first / limit - 1);
+    fetchData();
   }, []);
 
   useEffect(() => {
