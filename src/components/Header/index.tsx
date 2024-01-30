@@ -5,11 +5,11 @@ import { NavLink } from "react-router-dom";
 
 const NAV_LINKS = [
   {
-    href: "/",
+    href: "/frontend-challenge",
     label: "Все котики",
   },
   {
-    href: "/favorites",
+    href: "/frontend-challenge/favorites",
     label: "Любимые котики",
   },
 ];

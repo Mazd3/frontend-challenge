@@ -5,11 +5,11 @@ import { PageNonFound } from "./pages/PageNotFound";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/frontend-challenge",
     element: <Home />,
   },
   {
-    path: "/favorites",
+    path: "/frontend-challenge/favorites",
     element: <Favorites />,
   },
   {
