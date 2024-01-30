@@ -1,5 +1,3 @@
-import React, { useMemo } from "react";
-
 import { CatContainer } from "../components/CatContainer";
 import { CatCard, CatCardLoader, CatLoadingMessage } from "../components/Cat";
 import { Layout } from "../components/Layout";

@@ -1,5 +1,3 @@
-import React from "react";
-
 import styles from "./CatsNotFound.module.css";
 
 export function CatsNotFound() {

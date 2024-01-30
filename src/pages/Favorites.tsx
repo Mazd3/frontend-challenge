@@ -1,5 +1,3 @@
-import React from "react";
-
 import { CatContainer } from "../components/CatContainer";
 import { CatCard } from "../components/Cat";
 import { Layout } from "../components/Layout";
