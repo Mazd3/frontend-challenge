@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import type { Cat } from '../types/Cat'
+import { getCats } from '../api/requests'
+import { type Cat } from '../types/Cat'
 
 export function useInfinityScroll(limit: number = 20) {
   const [cats, setCats] = useState<Cat[]>([])
@@ -8,18 +9,9 @@ export function useInfinityScroll(limit: number = 20) {
   const [page, setPage] = useState(0)
 
   async function fetchData() {
-    setLoading(true)
     try {
-      const res = await fetch(
-        `https://api.thecatapi.com/v1/images/search?limit=${limit}&page=${page}`,
-        {
-          method: 'GET',
-          headers: {
-            'x-api-key': import.meta.env.VITE_API_KEY
-          }
-        }
-      )
-      const data = await res.json()
+      setLoading(true)
+      const { data } = await getCats(limit, page)
       setCats(cats => [...cats, ...data])
       setPage(page => page + 1)
       setLoading(false)
@@ -39,7 +31,7 @@ export function useInfinityScroll(limit: number = 20) {
   }
 
   useEffect(() => {
-    fetchData()
+    fetchData().catch(console.error)
   }, [])
 
   useEffect(() => {
