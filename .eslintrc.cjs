@@ -48,7 +48,8 @@ module.exports = {
     'import/first': 'error',
     'import/newline-after-import': 'error',
     'import/no-duplicates': 'error',
-    'require-await': 'error'
+    'require-await': 'error',
+    'jsx-a11y/control-has-associated-label': 'off'
   },
   overrides: [
     {

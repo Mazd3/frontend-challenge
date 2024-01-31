@@ -37,23 +37,23 @@
   opacity: 1;
 }
 
-.favorite {
+.button {
+  color: #f24e1e;
   border: none;
-  background: url(../../assets/favorite_border.svg) no-repeat center center;
   width: 48px;
   height: 48px;
-  color: #f24e1e;
   position: absolute;
   bottom: 20px;
   right: 15px;
+  background: none;
+  transition: color 0.2s ease-out;
   cursor: pointer;
-  transition: background 0.2s ease-out;
 }
 
 .favorite:hover {
-  background: url(../../assets/favorite.svg) no-repeat center center;
+  color: #f24e1e;
 }
 
 .favorite_active {
-  background: url(../../assets/favorite_added.svg) no-repeat center center;
+  color: #ff3a00;
 }

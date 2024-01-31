@@ -8,7 +8,7 @@ export function useFavorites() {
   useEffect(() => {
     const favoritesString = localStorage.getItem('favorites')
     if (!favoritesString) return
-    const favoritesArr: Cat[] = JSON.parse(favoritesString)
+    const favoritesArr = JSON.parse(favoritesString) as Cat[]
     changeFavorites(favoritesArr)
   }, [])
 
@@ -16,7 +16,7 @@ export function useFavorites() {
     localStorage.setItem('favorites', JSON.stringify(favorites))
   }, [favorites])
 
-  function setFavorites(id: string, url: string) {
+  function setFavorite(id: string, url: string) {
     if (favorites && favorites.find(cat => cat.id === id)) {
       changeFavorites(favorites.filter(cat => cat.id !== id))
     } else {
@@ -26,6 +26,6 @@ export function useFavorites() {
 
   return {
     favorites,
-    setFavorites
+    setFavorite
   }
 }

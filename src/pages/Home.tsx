@@ -8,15 +8,15 @@ import { useInfinityScroll } from '../hooks/useInfinityScrollCats'
 
 export const Home = () => {
   const { cats, loading } = useInfinityScroll()
-  const { favorites, setFavorites } = useFavorites()
+  const { favorites, setFavorite } = useFavorites()
 
   return (
     <Layout>
       <CatContainer>
         {cats.map((cat, index) => (
           <CatCard
-            setFavorites={() => setFavorites(cat.id, cat.url)}
-            favorite={Boolean(favorites.find(fav => fav.id === cat.id))}
+            setFavorite={() => setFavorite(cat.id, cat.url)}
+            isFavorite={Boolean(favorites.find(fav => fav.id === cat.id))}
             key={index}
             src={cat.url}
           />
