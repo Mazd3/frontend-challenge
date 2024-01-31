@@ -1,12 +1,8 @@
 import { Home } from "./pages/Home";
-import {
-  RouterProvider,
-  createBrowserRouter,
-  redirect,
-} from "react-router-dom";
+import { RouterProvider, createHashRouter, redirect } from "react-router-dom";
 import { Favorites } from "./pages/Favorites";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/frontend-challenge",
     loader: () => redirect("/frontend-challenge/home"),
