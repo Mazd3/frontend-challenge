@@ -5,7 +5,7 @@ import { NoCats } from '../components/NoCats'
 import { useFavorites } from '../hooks/useFavoritesCats'
 
 export const Favorites = () => {
-  const { favorites, setFavorites } = useFavorites()
+  const { favorites, setFavorite } = useFavorites()
 
   return (
     <Layout>
@@ -13,8 +13,8 @@ export const Favorites = () => {
         {favorites.length > 0 &&
           favorites.map(cat => (
             <CatCard
-              favorite
-              setFavorites={() => setFavorites(cat.id, cat.url)}
+              isFavorite
+              setFavorite={() => setFavorite(cat.id, cat.url)}
               key={cat.id}
               src={cat.url}
             />
