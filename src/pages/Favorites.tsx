@@ -1,17 +1,17 @@
-import { CatContainer } from "../components/CatContainer";
-import { CatCard } from "../components/CatCard";
-import { Layout } from "../components/Layout";
-import { useFavorites } from "../hooks/useFavoritesCats";
-import { NoCats } from "../components/NoCats";
+import { CatCard } from '../components/CatCard'
+import { CatContainer } from '../components/CatContainer'
+import { Layout } from '../components/Layout'
+import { NoCats } from '../components/NoCats'
+import { useFavorites } from '../hooks/useFavoritesCats'
 
-export function Favorites() {
-  const { favorites, setFavorites } = useFavorites();
+export const Favorites = () => {
+  const { favorites, setFavorites } = useFavorites()
 
   return (
     <Layout>
       <CatContainer>
         {favorites.length > 0 &&
-          favorites.map((cat) => (
+          favorites.map(cat => (
             <CatCard
               favorite
               setFavorites={() => setFavorites(cat.id, cat.url)}
@@ -22,5 +22,5 @@ export function Favorites() {
       </CatContainer>
       {!favorites.length && <NoCats />}
     </Layout>
-  );
+  )
 }

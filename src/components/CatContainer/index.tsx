@@ -1,7 +1,9 @@
-import React from "react";
+import styles from './CatContainer.module.css'
 
-import styles from "./CatContainer.module.css";
+interface CatContainerProps {
+  children: React.ReactNode
+}
 
-export function CatContainer({ children }: { children: React.ReactNode }) {
-  return <div className={styles.container}>{children}</div>;
+export const CatContainer: React.FC<CatContainerProps> = ({ children }) => {
+  return <div className={styles.container}>{children}</div>
 }

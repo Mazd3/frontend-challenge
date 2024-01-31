@@ -1,14 +1,14 @@
-import { CatContainer } from "../components/CatContainer";
-import { CatCard } from "../components/CatCard";
-import { Layout } from "../components/Layout";
-import { useInfinityScroll } from "../hooks/useInfinityScrollCats";
-import { useFavorites } from "../hooks/useFavoritesCats";
-import { CatSkeleton } from "../components/CatSkeleton";
-import { CatLoadingMessage } from "../components/CatLoadingMessage";
+import { CatCard } from '../components/CatCard'
+import { CatContainer } from '../components/CatContainer'
+import { CatLoadingMessage } from '../components/CatLoadingMessage'
+import { CatSkeleton } from '../components/CatSkeleton'
+import { Layout } from '../components/Layout'
+import { useFavorites } from '../hooks/useFavoritesCats'
+import { useInfinityScroll } from '../hooks/useInfinityScrollCats'
 
-export function Home() {
-  const { cats, loading } = useInfinityScroll();
-  const { favorites, setFavorites } = useFavorites();
+export const Home = () => {
+  const { cats, loading } = useInfinityScroll()
+  const { favorites, setFavorites } = useFavorites()
 
   return (
     <Layout>
@@ -16,7 +16,7 @@ export function Home() {
         {cats.map((cat, index) => (
           <CatCard
             setFavorites={() => setFavorites(cat.id, cat.url)}
-            favorite={Boolean(favorites.find((fav) => fav.id === cat.id))}
+            favorite={Boolean(favorites.find(fav => fav.id === cat.id))}
             key={index}
             src={cat.url}
           />
@@ -28,5 +28,5 @@ export function Home() {
       </CatContainer>
       {loading && <CatLoadingMessage />}
     </Layout>
-  );
+  )
 }

@@ -1,26 +1,23 @@
-import { Home } from "./pages/Home";
-import {
-  RouterProvider,
-  createBrowserRouter,
-  redirect,
-} from "react-router-dom";
-import { Favorites } from "./pages/Favorites";
+import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom'
+
+import { Favorites } from './pages/Favorites'
+import { Home } from './pages/Home'
 
 const router = createBrowserRouter([
   {
-    path: "/frontend-challenge",
-    loader: () => redirect("/frontend-challenge/home"),
+    path: '/frontend-challenge',
+    loader: () => redirect('/frontend-challenge/home')
   },
   {
-    path: "/frontend-challenge/home",
-    element: <Home />,
+    path: '/frontend-challenge/home',
+    element: <Home />
   },
   {
-    path: "/frontend-challenge/favorites",
-    element: <Favorites />,
-  },
-]);
+    path: '/frontend-challenge/favorites',
+    element: <Favorites />
+  }
+])
 
-export default function App() {
-  return <RouterProvider router={router} />;
-}
+const App = () => <RouterProvider router={router} />
+
+export default App

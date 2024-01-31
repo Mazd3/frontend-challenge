@@ -1,5 +1,5 @@
-import styles from "./CatLoadingMessage.module.css";
+import styles from './CatLoadingMessage.module.css'
 
-export function CatLoadingMessage() {
-  return <div className={styles.message}>... загружаем котиков ...</div>;
-}
+export const CatLoadingMessage = () => (
+  <div className={styles.message}>... загружаем котиков ...</div>
+)
