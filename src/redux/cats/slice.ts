@@ -1,17 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 import { type Cat } from '../../types/Cat'
+import { type RootState } from '../store'
 import { fetchCats } from './thunks'
 
-interface InitialState {
+export interface CatsInitialState {
   cats: Cat[]
   isLoading: boolean
   page: number
 }
 
-const initialState: InitialState = {
+const initialState: CatsInitialState = {
   cats: [],
-  isLoading: true,
+  isLoading: false,
   page: 0
 }
 
@@ -31,5 +32,7 @@ const catsSlice = createSlice({
       })
   }
 })
+
+export const getCats = (state: RootState) => state.cats
 
 export const catsReducer = catsSlice.reducer
