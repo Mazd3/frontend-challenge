@@ -25,7 +25,7 @@ export const CatCard: React.FC<CatCardProps> = ({ isFavorite, id, url }) => {
 
   return (
     <div className={styles.card}>
-      <img onLoad={() => console.log('loaded')} className={styles.image} src={url} alt='cat' />
+      <img className={styles.image} src={url} alt='cat' />
       <div className={styles.overlay}>
         <button
           type='button'
